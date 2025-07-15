@@ -6,7 +6,6 @@ export type Product = {
   categoryId: number;
   subcategory: string;
   price: number;
-  product_code: string;
 };
 
 export type UserListItem = Product & { quantity: number };

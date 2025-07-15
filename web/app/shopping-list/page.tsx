@@ -26,7 +26,7 @@ export default function ProductCatalogWithSidebar() {
   const [loadingRecommendation, setLoadingRecommendation] = useState(false);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(true); 
 
 
   useEffect(() => {
@@ -75,7 +75,6 @@ export default function ProductCatalogWithSidebar() {
     // eslint-disable-next-line
   }, [selectedCategories, selectedRestrictions, page, search]);
 
-
   function addToList(product: Product) {
     setUserList(list => {
       const idx = list.findIndex(item => item.id === product.id);
@@ -98,14 +97,12 @@ export default function ProductCatalogWithSidebar() {
     });
   }
 
-  // Cálculo del total y presupuesto
   const total = userList.reduce((sum, item) => sum + (item.price || 0) * item.quantity, 0);
 
-  // Enviar la lista de la compra
   function handleSend() {
     setSending(true);
     const productsPayload = userList.map(item => ({
-      _id: item.id,
+      _id: item._id,
       product_code: item.product_code,
       name: item.name
     }));
@@ -137,7 +134,7 @@ export default function ProductCatalogWithSidebar() {
     setSelectedCategories(c =>
       c.includes(catId) ? c.filter(id => id !== catId) : [...c, catId]
     );
-    setPage(1);
+    setPage(1); 
   }
   function toggleRestriction(rid: string) {
     setSelectedRestrictions(r =>
@@ -145,7 +142,6 @@ export default function ProductCatalogWithSidebar() {
     );
     setPage(1);
   }
-
 
   async function fetchRecommendation() {
     setLoadingRecommendation(true);
@@ -344,7 +340,7 @@ export default function ProductCatalogWithSidebar() {
         )}
       </main>
 
-      {/* MODAL RECOMENDACIÓN IA */}
+      {/* === MODAL RECOMENDACIÓN IA === */}
       {showRecommendationModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
