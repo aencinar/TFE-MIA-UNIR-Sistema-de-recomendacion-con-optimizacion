@@ -6,6 +6,6 @@ class Product(BaseModel):
     supermarket: str = Field(..., min_length=1)
     name: str = Field(..., min_length=1)
     category: str = Field(..., min_length=1)
-    description: Optional[str] = None
+    subcategory: str = Field(..., min_length=1)
     price: float = Field(..., gt=0)
     lastUpdate: int = Field(..., gt=0)

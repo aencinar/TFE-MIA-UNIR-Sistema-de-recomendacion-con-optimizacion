@@ -1,7 +1,7 @@
-from config.database import collection_name
+from API.config.database import collection_name
 from bson import ObjectId
-from schema.schemas import list_serial
-from models.product import Product
+from API.schema.schemas import list_serial
+from API.models.product import Product
 from pymongo.errors import PyMongoError
 from fastapi import HTTPException, status
 

@@ -5,7 +5,7 @@ def individual_serial(product) -> dict:
         "supermarket": str(product["supermarket"]),
         "name": str(product["name"]),
         "category": str(product["category"]),
-        "description": str(product["description"]),
+        "subcategory": str(product["subcategory"]),
         "price": float(product["price"]),
         "lastUpdate": int(product["lastUpdate"])
     }
