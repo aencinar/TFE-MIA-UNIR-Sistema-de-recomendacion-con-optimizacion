@@ -24,7 +24,7 @@ class CatalogService:
             skip = (page - 1) * PAGE_SIZE
 
             projection = {
-                "_id": 1,  # Si quieres devolver el _id, conviértelo luego
+                "_id": 1,
                 "supermarket": 1,
                 "product_code": 1,
                 "category": 1,

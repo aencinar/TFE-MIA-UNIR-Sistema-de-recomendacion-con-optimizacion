@@ -16,4 +16,4 @@ except errors.ServerSelectionTimeoutError as error:
     raise
 
 db = client[DB_NAME]
-collection_name = db["despensia_collection"]  # Cambia a tu colección real
+collection_name = db["despensia_collection"]
