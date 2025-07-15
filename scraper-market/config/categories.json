@@ -1,0 +1,11 @@
+{
+    "Aceite": 1, "Vinagre": 2, "Sal": 3, "Especias": 4, "Salsas": 5,
+    "Bebidas sin alcohol": 6, "Bebidas con alcohol": 7, "Aperitivos": 8, "Arroz": 9, "Legumbre": 10,
+    "Pasta": 11, "Dulces y pasteleria": 12, "Comida preparada": 13, "Cacao, café, infusiones": 14,
+    "Carne": 15, "Pescado": 16, "Cereales": 17, "Galletas": 18, "Charcuteria": 19,
+    "Quesos": 20, "Congelados": 21, "Conservas": 22, "Caldos y sopas": 23, "Cremas": 24,
+    "Fruta": 25, "Verduras": 26, "Ensaladas": 27, "Huevos": 28, "Lacteos": 29,
+    "Panaderia": 30, "Pizzas": 31, "Zumos": 32, "Bicarbonato": 33, "Sazonador": 34, "Harina y masas":35,
+    "Comida mexicana": 36, "Comida oriental": 37, "Otros":38, "Azucar, edulcorantes, otros": 39,
+    "Mermelada, membrillo, miel, otros": 40
+}

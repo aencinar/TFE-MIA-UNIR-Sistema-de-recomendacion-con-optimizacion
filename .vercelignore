@@ -1,0 +1,5 @@
+# evita que sobrepasemos los 100 MB de “subida”  :contentReference[oaicite:0]{index=0}
+*.ipynb
+__pycache__/
+data/
+.cache/

@@ -1,0 +1,31 @@
+name: CI + Deploy to Vercel
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+        working-directory: ./web
+
+      - run: npm test --if-present
+        working-directory: ./web
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25.2.0
+        with:
+          working-directory: ./web
+          vercel-token:      ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id:     ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args:       ${{ github.ref == 'refs/heads/master' && '--prod' || '' }}
