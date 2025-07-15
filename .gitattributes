@@ -1,0 +1,2 @@
+AI/graphs.pkl filter=lfs diff=lfs merge=lfs -text
+AI/productos_procesados.csv filter=lfs diff=lfs merge=lfs -text
