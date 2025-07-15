@@ -123,3 +123,5 @@ pnpm-debug.log*
 .turbo
 
 .next
+
+.DS_Store
