@@ -15,23 +15,21 @@ def search(products_list, budget, restrictions, df, graphs_by_cluster, neighbors
     for item in products_list:
         productos_similares, sims = get_candidates(item, embeddings, df_processed, code2idx)
         if not productos_similares.empty:
-            # the first one is more similar
             best_candidate = productos_similares.iloc[0]['product_code']
             shopping_codes.append(best_candidate)
         else:
-            # No similar, return original
             shopping_codes.append(item)
 
 
     shopping_codes = list(set(shopping_codes))
-    print(f"Total de códigos iniciales: {len(shopping_codes)}")
+    print(f"🛒 Total de códigos iniciales: {len(shopping_codes)}")
 
     valid_codes = set(df_processed['product_code'])
     valid_shopping_codes = [code for code in shopping_codes if code in valid_codes]
     
     print(f"✅ Códigos válidos encontrados: {len(valid_shopping_codes)}/{len(shopping_codes)}")
     if len(valid_shopping_codes) == 0:
-        print("No hay códigos válidos para buscar. Usando fallback.")
+        print("🚨 No hay códigos válidos para buscar. Usando fallback.")
         return greedy_fallback(shopping_codes, budget, restrictions, df_processed, neighbors_dict)
     
     start = time.time()
@@ -74,7 +72,7 @@ def search(products_list, budget, restrictions, df, graphs_by_cluster, neighbors
 
     end = time.time()
 
-    print(f"Tiempo total de ejecución: {end - start:.3f} segundos")
+    print(f"⏱️ Tiempo total de ejecución: {end - start:.3f} segundos")
 
     metrics = evaluate_solution(
         products_list,           # lista original

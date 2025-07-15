@@ -24,7 +24,6 @@ protected_brands = {
     "la asturiana","la española","dolce gusto", "la cocinera"
 }
 
-# Términos protegidos que no deben eliminarse, pero no se capitalizan
 protected_keywords = {
     "ron", "margarita", "pizza", "platano", "vino", "boqueron", "g", "kg", "ml", "l", "cl", "unidad", "unidades", "pack"
 }

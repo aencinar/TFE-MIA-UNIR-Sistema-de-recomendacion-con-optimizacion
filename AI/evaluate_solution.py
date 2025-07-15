@@ -6,7 +6,7 @@ def evaluate_solution(shopping_list, result_path, evaluator, restrictions, df, s
     shopping_list = [str(code).strip() for code in shopping_list]
     fitness = evaluator.evaluate(result_path, shopping_list, restrictions)
 
-    # total cost
+    
     code2row = {str(row['product_code']).strip(): row for _, row in df.iterrows()}
     total_cost = 0.0
     costs = []
@@ -16,7 +16,6 @@ def evaluate_solution(shopping_list, result_path, evaluator, restrictions, df, s
         total_cost += price
         costs.append(price)
     
-    # average similarity
     similarities = []
     for orig, sub in zip(shopping_list, result_path):
         row_o = code2row.get(str(orig).strip())
@@ -29,7 +28,6 @@ def evaluate_solution(shopping_list, result_path, evaluator, restrictions, df, s
     avg_sim = np.mean(similarities) if similarities else None
 
 
-    # Percentage of restrictions
     total_checked = 0
     total_ok = 0
     for code in result_path:
@@ -43,7 +41,7 @@ def evaluate_solution(shopping_list, result_path, evaluator, restrictions, df, s
                         total_ok += 1
     restriction_accuracy = (total_ok / total_checked * 100) if total_checked > 0 else None
 
-    # execution time
+    # Execution time
     elapsed_time = end_time - start_time if (start_time is not None and end_time is not None) else None
 
     # Print summary
